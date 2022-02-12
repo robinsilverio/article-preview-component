@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>Frontend Mentor | Article preview component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+      p {
+        margin-top: 0;
+      }
+      body {
+        background-color: hsl(210, 46%, 95%);
+      }
+      div.article-component {
+        width: 50%;
+        margin: auto;
+        background-color: #fff;
+        color: hsl(214, 17%, 51%);
+        font-family: 'Manrope', sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+      div.article-component div.article-img img {
+        width: 100%;
+      }
+      div.article-description {
+        padding: 30px;
+      }
+      div.article-description .description, div.author-block {
+        font-size: 13px;
+      }
+      div.article-description .description-title, div.author-block .person-name {
+        color: hsl(217, 19%, 35%);
+        font-weight: 700;
+      }
+      div.author-block {
+        display: flex;
+        flex-direction: row;
+      }
+      div.author-block div { padding: 0px 5px 0px 0px;}
+      div.author-block div.author-image {
+        width: 38px; 
+      }
+      div.author-block .author-image img {
+        border-radius: 50%;
+        width: 100%;
+      }
+      div.author-block div.author-info {
+        width: 50%;
+      }
+      div.author-block div.author-info p {
+        margin: 0;
+      }
+      div.author-block div.share-block {
+        height: 10%;
+        position: relative;
+        left: 20%;
+        top: 10px;
+      }
+
+      div.share-block div.share-popup {
+        position: absolute;
+        background-color: hsl(217, 19%, 35%);
+        height: 20px;
+        bottom: 41px;
+        padding: 15px;
+        width: 170px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-radius: 15px;
+        right: -85px;
+        display: none;
+      }
+      div.share-block div.share-popup::after {
+        position: absolute;
+        top: 88.1%;
+        left: 40%;
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: solid 21px hsl(217, 19%, 35%);
+        border-left: solid 21px transparent;
+        border-right: solid 21px transparent;
+      }
+
+      /*Responsive styling*/
+      @media screen and (min-width: 769px) {
+        div.article-component {
+          flex-direction: row;
+        }
+        div.article-component div.article-img img {
+          height: 100%;
+        }
+        div.author-block div.author-info {
+          width: 40%;
+        }
+        div.author-block div.share-block {
+          left: 40%;
+        }
+      }
+      @media screen and (max-width: 426px) {
+        div.article-component {
+          width: 80%;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="article-component">
+      <div class="article-img">
+        <img src="./images/drawers.jpg" alt="">
+      </div>
+      <div class="article-description">
+        <p class="description-title">Shift the overall look and feel by adding these wonderful 
+          touches to furniture in your home</p>
+        <p class="description">Ever been in a room and felt like something was missing? Perhaps 
+          it felt slightly bare and uninviting. I’ve got some simple tips 
+          to help you make any room feel complete.</p>
+        <div class="author-block">
+          <div class="author-image">
+            <img src="./images/avatar-michelle.jpg" alt="avatar-michelle">
+          </div>
+          <div class="author-info">
+            <p class="person-name">Michelle Appleton</p>
+            <p>28 Jun 2020</p>
+          </div>
+          <div class="share-block">
+            <div class="share-popup">
+              <span>SHARE</span>
+              <a href="facebook"><img src="./images/icon-facebook.svg" alt="facebook"></a>
+              <a href="twitter"><img src="./images/icon-twitter.svg" alt="twitter"></a>
+              <a href="pinterest"><img src="./images/icon-pinterest.svg" alt="pinterest"></a>
+            </div>
+            <img id="share-image" src="./images/icon-share.svg" alt="share-button">
+          </div>
+        </div>        
+      </div>
+    </div>
+    <script>
+      
+      window.onload = function () {
+        let shareButton = document.getElementById('share-image');
+        let sharePopup = document.getElementsByClassName('share-popup')[0];
+
+        document.onclick = (e) => {
+          if (e.target.id == 'share-image' || e.target.className === 'share-popup') {
+            sharePopup.style.display = 'flex';
+          } 
+          else {
+            sharePopup.style.display = 'none';
+          }
+        }
+      }
+
+    </script>
+    
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/robinsilverio">Robin Medeiros Silvério</a>.
+    </div>
+  </body>
+</html>
